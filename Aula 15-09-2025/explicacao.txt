@@ -1,0 +1,50 @@
+Explicação do Código da Calculadora
+
+1. index.html
+Este arquivo define a estrutura da página web da calculadora.
+
+- <!DOCTYPE html>: Declara o tipo de documento como HTML5.
+- <html lang="pt-br">: Elemento raiz da página, com idioma português brasileiro.
+- <head>: Contém metadados da página.
+  - <meta charset="UTF-8">: Define a codificação de caracteres como UTF-8.
+  - <meta name="viewport" content="width=device-width, initial-scale=1.0">: Configura a viewport para dispositivos móveis.
+  - <title>Atividade 15-09</title>: Título da página exibido na aba do navegador.
+  - <script src="script.js" defer></script>: Carrega o arquivo JavaScript, com defer para executar após o carregamento do HTML.
+  - <link rel="stylesheet" href="styles.css">: Carrega o arquivo CSS para estilização.
+- <body>: Contém o conteúdo visível da página.
+  - <h1>Calculadora</h1>: Título principal da página.
+  - <div class="calculator">: Container principal da calculadora.
+    - <input type="text" id="display" disabled />: Campo de entrada para exibir os números e resultados, desabilitado para edição direta.
+    - <div class="buttons">: Container para os botões.
+      - Botões para números (0-9) com classe "num" e data-value para o valor.
+      - Botões para operadores (+, -, *, /) com classe "op" e data-value.
+      - Botão "C" com id="clear" para limpar.
+      - Botão "=" com id="equals" para calcular.
+
+2. script.js
+Este arquivo contém a lógica JavaScript para a funcionalidade da calculadora.
+
+- Função apresentar(): Solicita nome e ano de nascimento via prompt, calcula idade e verifica se é maior de 18.
+- Função calculadoraSimples(): Calculadora básica usando prompts para entrada e alert para saída.
+- Variáveis para a interface:
+  - display: Referência ao elemento de display.
+  - currentInput: String para o número atual sendo digitado.
+  - operator: Operador selecionado.
+  - previousInput: Número anterior para cálculo.
+- Função appendNumber(number): Adiciona dígito ao currentInput e atualiza o display.
+- Função setOperator(op): Define o operador, calcula se necessário, e prepara para o próximo número.
+- Função calculate(): Realiza o cálculo baseado no operador e atualiza o display.
+- Função clearDisplay(): Limpa todas as variáveis e o display.
+- Event listener DOMContentLoaded: Adiciona event listeners aos botões para interações.
+
+3. styles.css
+Este arquivo define os estilos visuais da calculadora.
+
+- .calculator: Estilo para o container da calculadora (largura, margem, borda, fundo).
+- #display: Estilo para o campo de display (largura, altura, fonte, alinhamento).
+- .buttons: Layout em grid para os botões (4 colunas).
+- button: Estilo geral dos botões (altura, fonte, borda, fundo, cursor).
+- button:hover: Efeito ao passar o mouse.
+- .op: Estilo específico para botões de operadores (fundo cinza).
+- #equals: Estilo para o botão de igual (fundo verde, texto branco).
+- #clear: Estilo para o botão de limpar (fundo vermelho, texto branco).
