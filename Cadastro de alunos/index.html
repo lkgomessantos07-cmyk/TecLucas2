@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <h1>Cadastro de Funcionário</h1>
+    
+    <form onsubmit="return CadastrarAlunos(event)">
+        <div class="form-content">
+            
+            <div>
+                <label for="nome">Nome:</label> 
+                <input type="text" id="nome" name="campoNome" placeholder="Digite o nome do Aluno" required>
+            </div>
+            
+            <div>
+                <label for="email">Email:</label> 
+                <input type="email" id="email" name="Email" placeholder="Digite o Email do Aluno" required>
+            </div>
+            
+            <div>
+                <label for="Curso">Curso</label>
+                <select name="Curso" id="Curso" required>
+                    <option value="" disabled selected hidden>Selecione o Curso</option>
+                    <option value="TI">TI</option>
+                    <option value="Matemática">Matemática</option>
+                    <option value="Adm">Adm</option>
+                </select>
+            </div>
+            
+            <div>
+                <label><input type="radio" name="Modalidade" value="Presencial" checked>Presencial</label>
+                <label><input type="radio" name="Modalidade" value="EAD">EAD</label>
+            </div>
+            
+            <button type="submit">Enviar</button>
+        </div>
+    </form>
+
+    <h2>Lista de Alunos Cadastrados</h2>
+    <div class="filter-buttons">
+        <button id="showAll">Mostrar Todos</button>
+        <button id="showEAD">Mostrar EAD</button>
+        <button id="showPresencial">Mostrar Presencial</button>
+    </div>
+    <ul id="listaAlunos"></ul>
+
+</body>
+</html>
