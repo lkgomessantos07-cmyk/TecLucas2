@@ -14,7 +14,7 @@ function CadastrarAlunos(event) {
                       Modalidade: ${modalidade}`;
     item.classList.add(modalidade.toLowerCase());
 
-    // Add delete button
+    
     const deleteBtn = document.createElement('button');
     deleteBtn.textContent = 'Apagar';
     deleteBtn.className = 'delete-btn';
@@ -30,7 +30,7 @@ function CadastrarAlunos(event) {
     return false;
 }
 
-// Filter functions
+
 function showAll() {
     const items = document.querySelectorAll('#listaAlunos li');
     items.forEach(item => item.style.display = 'block');
@@ -58,7 +58,7 @@ function showPresencial() {
     });
 }
 
-// Add event listeners to filter buttons
+
 document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('showAll').addEventListener('click', showAll);
     document.getElementById('showEAD').addEventListener('click', showEAD);
