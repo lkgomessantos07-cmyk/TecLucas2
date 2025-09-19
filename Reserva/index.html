@@ -4,8 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reserva</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
 </head>
 <body>
-    
-</body>
-</html>
+
+<h1>Reserva de Hotel</h1>
+
+<form onsubmit="return CadastrarHóspede(event)">
+
+<div>
+    <label for="nome">Nome:</label> 
+    <input type="text" id="nome" name="Nome" placeholder="Digite o nome do Hóspede" required> <br>
+</div>
+        
+<div>
+    <label for="Quarto">Tipo de Quarto:</label> 
+    <select name="Quarto" id="Quarto" required>
+    <option value="" disabled selected hidden>Selecione o Serviço</option>
+    <option value="Simples">Simples - R$100/Dia</option>
+    <option value="Duplo">Duplo - R$150/Dia</option>
+    <option value="Suíte">Suíte - R$200/Dia</option>
+    </select>
+</div>
+
+<div>
+    <label for="dataEntrada">Data de Entrada:</label>
+    <input type="date" id="dataEntrada" name="dataEntrada" required>
+</div>
+
+<div>
+    <label for="dataSaida">Data de Saída:</label>
+    <input type="date" id="dataSaida" name="dataSaida" required>
+</div>
+
+<div>
+
+<label for="Café_Manhã">Café da Manhã:</label> <br>
+<label><input type="radio" name="Café_Manhã" value="Sim" checked>Sim</label>
+<label><input type="radio" name="Café_Manhã" value="Não">Não</label>
+<br>
+ <button type="submit">Enviar</button>
+
+</div>
+
+<ul id="Lista_Hóspedes"></ul>
+
+</form>
+
+<script src="script.js"></script>
