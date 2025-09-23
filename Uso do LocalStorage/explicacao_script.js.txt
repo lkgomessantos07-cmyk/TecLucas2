@@ -1,0 +1,86 @@
+Explicação do Arquivo script.js
+=============================
+
+Este arquivo JavaScript (script.js) é responsável por gerenciar um formulário de cadastro de usuário, utilizando o localStorage do navegador para armazenar e exibir informações do usuário. Abaixo, uma explicação detalhada do código, linha por linha e seção por seção.
+
+**Visão Geral:**
+- O script interage com elementos HTML: um formulário com ID 'cadastroForm' e um elemento de exibição com ID 'infoDisplay'.
+- Ele permite que o usuário insira nome, idade e altura, armazene essas informações no localStorage e as exiba na página.
+- Funcionalidades principais:
+  - Ao carregar a página, exibe dados armazenados anteriormente (se existirem).
+  - Ao submeter o formulário, salva os novos dados no localStorage e atualiza a exibição.
+- Conceitos chave: Manipulação do DOM, eventos JavaScript, armazenamento local (localStorage) e serialização JSON.
+
+**Quebra do Código por Seções:**
+
+1. **Evento DOMContentLoaded:**
+   - `document.addEventListener('DOMContentLoaded', function() { ... });`
+   - Este listener aguarda o carregamento completo do DOM (Document Object Model) antes de executar o código.
+   - Garante que os elementos HTML estejam disponíveis para manipulação.
+
+2. **Referências aos Elementos HTML:**
+   - `const form = document.getElementById('cadastroForm');`
+     - Obtém o elemento do formulário pelo ID.
+   - `const infoDisplay = document.getElementById('infoDisplay');`
+     - Obtém o elemento onde as informações serão exibidas.
+
+3. **Chamada Inicial para Exibir Dados Armazenados:**
+   - `displayStoredInfo();`
+     - Chama a função para exibir qualquer informação já salva no localStorage ao carregar a página.
+
+4. **Evento de Submissão do Formulário:**
+   - `form.addEventListener('submit', function(event) { ... });`
+     - Adiciona um listener para o evento 'submit' do formulário.
+   - `event.preventDefault();`
+     - Impede o comportamento padrão do formulário (recarregar a página), permitindo controle customizado.
+
+5. **Captura dos Valores do Formulário:**
+   - `const nome = document.getElementById('nome').value;`
+     - Obtém o valor do campo de entrada com ID 'nome'.
+   - `const idade = document.getElementById('idade').value;`
+     - Obtém o valor do campo com ID 'idade'.
+   - `const altura = document.getElementById('altura').value;`
+     - Obtém o valor do campo com ID 'altura'.
+
+6. **Criação do Objeto Usuário:**
+   - `const user = { nome: nome, idade: idade, altura: altura };`
+     - Cria um objeto JavaScript com as propriedades nome, idade e altura.
+
+7. **Armazenamento no localStorage:**
+   - `localStorage.setItem('userInfo', JSON.stringify(user));`
+     - Converte o objeto 'user' para uma string JSON e armazena no localStorage com a chave 'userInfo'.
+     - localStorage é um mecanismo de armazenamento persistente no navegador, que sobrevive ao fechamento da aba.
+
+8. **Atualização da Exibição e Reset do Formulário:**
+   - `displayStoredInfo();`
+     - Chama a função para atualizar a exibição com os novos dados.
+   - `form.reset();`
+     - Limpa todos os campos do formulário após a submissão.
+
+9. **Função displayStoredInfo():**
+   - `function displayStoredInfo() { ... }`
+     - Esta função é responsável por recuperar e exibir os dados do localStorage.
+   - `const storedUser = localStorage.getItem('userInfo');`
+     - Recupera a string JSON armazenada com a chave 'userInfo'.
+   - `if (storedUser) { ... } else { ... }`
+     - Verifica se há dados armazenados.
+   - Se sim: `const user = JSON.parse(storedUser);`
+     - Converte a string JSON de volta para um objeto JavaScript.
+   - Em seguida, atualiza o innerHTML de 'infoDisplay' com os dados formatados:
+     - Exibe nome, idade e altura em parágrafos HTML.
+   - Se não: Define uma mensagem padrão: "Nenhuma informação armazenada ainda."
+
+**Interação com HTML:**
+- O script assume que o HTML tem:
+  - Um formulário com ID 'cadastroForm' e campos de entrada com IDs 'nome', 'idade' e 'altura'.
+  - Um elemento com ID 'infoDisplay' para mostrar as informações (provavelmente uma div ou similar).
+- Não há dependência de outros arquivos JavaScript ou bibliotecas externas.
+
+**Conceitos Chave Explicados:**
+- **DOM Manipulation:** Usado para acessar e modificar elementos HTML dinamicamente.
+- **Event Listeners:** Permitem responder a ações do usuário, como submissão de formulário.
+- **localStorage:** Armazenamento local no navegador para persistir dados entre sessões.
+- **JSON Serialization:** Conversão de objetos JavaScript para strings (JSON.stringify) e vice-versa (JSON.parse) para armazenamento.
+- **Template Literals:** Usados na exibição para inserir variáveis em strings HTML (ex.: `${user.nome}`).
+
+Este script é simples, mas demonstra práticas básicas de JavaScript para formulários interativos e armazenamento de dados no cliente.
