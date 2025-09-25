@@ -1,3 +1,5 @@
+let editIndex = -1;
+
 function cadastrarFuncionario(e) {
   e.preventDefault();
 
@@ -10,11 +12,34 @@ function cadastrarFuncionario(e) {
   };
 
   let funcionarios = JSON.parse(localStorage.getItem("funcionarios")) || [];
-  funcionarios.push(funcionario);
+
+  if (editIndex >= 0) {
+    funcionarios[editIndex] = funcionario;
+    editIndex = -1;
+    document.getElementById("submitBtn").textContent = "Cadastrar";
+  } else {
+    funcionarios.push(funcionario);
+  }
+
   localStorage.setItem("funcionarios", JSON.stringify(funcionarios));
 
   carregarFuncionarios();
   e.target.reset();
+}
+
+function editarFuncionario(index) {
+  let funcionarios = JSON.parse(localStorage.getItem("funcionarios")) || [];
+  let f = funcionarios[index];
+
+  document.getElementById("nome").value = f.nome;
+  document.getElementById("idade").value = f.idade;
+  document.getElementById("cargo").value = f.cargo;
+  document.getElementById("salario").value = f.salario;
+  document.getElementById("departamento").value = f.departamento;
+  document.getElementById("editIndex").value = index;
+
+  editIndex = index;
+  document.getElementById("submitBtn").textContent = "Atualizar";
 }
 
 function carregarFuncionarios() {
@@ -34,6 +59,7 @@ function carregarFuncionarios() {
       <td>${f.departamento}</td>
       <td>
         <button onclick="mostrarFuncionario(${index})">Ver</button>
+        <button onclick="editarFuncionario(${index})">Editar</button>
         <button onclick="removerFuncionario(${index})">Remover</button>
       </td>
     `;

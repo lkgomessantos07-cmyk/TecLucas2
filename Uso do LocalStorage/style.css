@@ -151,6 +151,15 @@ td button:first-child:hover {
   background: #229954;
 }
 
+td button:nth-child(2) {
+  background: #3498db;
+  color: white;
+}
+
+td button:nth-child(2):hover {
+  background: #2980b9;
+}
+
 td button:last-child {
   background: #e74c3c;
   color: white;
