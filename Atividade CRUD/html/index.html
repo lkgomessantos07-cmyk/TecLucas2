@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciador de Tarefas</title>
+</head>
+<body>
+    <h1>Gerenciador de Tarefas</h1>
+
+    <form id="Task-form">
+
+<label for="Nome">Nome da Tarefa: </label> <br>
+<input type="text" id="campo-nome" placeholder="Digite o da Tarefa" required> <br>
+
+<label for="Descrição">Descrição: </label> <br>
+<input type="text" id="campo-descricao" placeholder="Digite a Descrição da tarefa"> <br>
+
+<label for="Prazo">Data de Inicial:</label> <br>
+<input type="date" id="Inicial" required><br>
+
+<label for="Prazo">Data Final:</label> <br>
+<input type="date" id="Final" required> <br>
+<br>
+
+<label for="Status">Status da Tarefa:</label> <br>
+<select id="Status-task">
+
+<option value="">Selecione o Status</option>
+<option value="Pendente">Pendente</option>
+<option value="Em Andamento">Em Andamento</option>
+<option value="Concluída">Concluída</option>
+
+</select>
+<br>
+<br>
+<button type="submit">Cadastrar</button>
+    </form>
+
+<h2>Lista de Tarefas</h2>
+<ul id="lista-tarefas"></ul>
+
+<script src="script.js"></script>
+
+</body>
+</html>
