@@ -1,0 +1,194 @@
+/* Vinland Saga Theme Styling */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;600&display=swap');
+
+:root{
+  --bg-deep: #3e2f1c;
+  --panel: #6b563d;
+  --blue-neon: #c9a66b;
+  --cyan-deep: #a67c00;
+  --red-accent: #8b5e3c;
+  --muted: #d7c4a3;
+  --glass: rgba(255, 255, 255, 0.05);
+  --radius-lg: 18px;
+  --glow: 0 8px 30px rgba(201, 166, 107, 0.08), 0 2px 6px rgba(0, 0, 0, 0.6);
+}
+
+/* Reset minimal */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background:
+    radial-gradient(1200px 600px at 10% 10%, rgba(62,47,28,0.6), transparent 10%),
+    linear-gradient(180deg, var(--bg-deep) 0%, #5a4a32 40%, #3e2f1c 100%);
+  color: var(--muted);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  padding:48px 20px;
+  display:flex;
+  align-items:flex-start;
+  justify-content:center;
+  gap:28px;
+}
+
+/* Layout container */
+.container{
+  width:100%;
+  max-width:980px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+  border-radius: var(--radius-lg);
+  padding:28px;
+  box-shadow: var(--glow);
+  border: 1px solid rgba(201, 166, 107, 0.06);
+  backdrop-filter: blur(6px) saturate(120%);
+  position:relative;
+  overflow:hidden;
+}
+
+/* Subtle stadium/grid pattern */
+.container::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:
+    repeating-linear-gradient(90deg, rgba(255,255,255,0.01) 0 1px, transparent 1px 40px),
+    linear-gradient(90deg, rgba(0,0,0,0.15), transparent 40%);
+  opacity:0.06;
+  pointer-events:none;
+}
+
+/* Title styling */
+h1{
+  font-family: "Orbitron", monospace;
+  font-weight:700;
+  font-size: clamp(1.6rem, 2.6vw, 2.4rem);
+  letter-spacing:1px;
+  cursor:pointer;
+  display:inline-block;
+  padding:12px 18px;
+  border-radius:10px;
+  background: linear-gradient(90deg, rgba(201,166,107,0.08), rgba(139,94,60,0.03));
+  border: 1px solid rgba(201,166,107,0.14);
+  text-transform:uppercase;
+  color:var(--blue-neon);
+  text-shadow: 0 1px 0 rgba(0,0,0,0.6), 0 6px 24px rgba(201,166,107,0.06);
+  transition: transform .18s ease, filter .18s ease;
+  transform-origin:left center;
+  user-select:none;
+}
+
+h1:hover{ transform: translateY(-3px) scale(1.02) }
+h1:active{ transform: translateY(1px) scale(.995); filter:brightness(.95) }
+
+h1::after{
+  content: "Viland Saga";
+  display:block;
+  font-family: Inter, sans-serif;
+  font-weight:600;
+  font-size:.65rem;
+  color:var(--muted);
+  margin-top:6px;
+  letter-spacing:.6px;
+}
+
+/* Main content grid */
+.content{
+  display:grid;
+  grid-template-columns: 380px 1fr;
+  gap:20px;
+  align-items:start;
+  margin-top:18px;
+}
+
+/* Image card */
+.image-card{
+  background: linear-gradient(180deg, rgba(255,255,255,0.04), transparent);
+  border-radius:14px;
+  padding:10px;
+  border: 1px solid rgba(0,0,0,0.45);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.6);
+  position:relative;
+  overflow:hidden;
+}
+
+.image-card img{
+  width:100%;
+  display:block;
+  border-radius:10px;
+  object-fit:cover;
+  transform:scale(1.02);
+  transition: transform .6s cubic-bezier(.2,.9,.2,1), filter .35s ease;
+  filter: contrast(1.05) saturate(1.1);
+  border: 3px solid rgba(201,166,107,0.06);
+  box-shadow: 0 10px 30px rgba(201,166,107,0.04);
+}
+
+.image-card:hover img{
+  transform: scale(1.06) translateY(-6px);
+  filter: saturate(1.15) brightness(1.02);
+}
+
+.image-card::after{
+  content:"";
+  position:absolute;
+  left:-30%;
+  top: -10%;
+  width:140%;
+  height:22%;
+  background: linear-gradient(90deg, rgba(139,94,60,0.05), rgba(201,166,107,0.06));
+  transform: rotate(-18deg);
+  mix-blend-mode: overlay;
+  pointer-events:none;
+}
+
+/* Text block */
+.text-block{
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
+  padding:18px;
+  border-radius:12px;
+  border: 1px solid rgba(255,255,255,0.02);
+  color:var(--muted);
+  line-height:1.55;
+  font-size:0.98rem;
+  box-shadow: 0 6px 18px rgba(62,47,28,0.6);
+}
+
+/* Tag */
+.tag{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:6px 10px;
+  border-radius:999px;
+  font-weight:600;
+  font-size:0.8rem;
+  color:#fff;
+  background: linear-gradient(90deg, var(--red-accent), rgba(139,94,60,0.6));
+  box-shadow: 0 6px 18px rgba(139,94,60,0.07);
+  margin-bottom:12px;
+}
+
+/* Links */
+a{
+  color:var(--blue-neon);
+  text-decoration:none;
+  border-bottom:1px dashed rgba(201,166,107,0.14);
+  transition:opacity .16s;
+}
+a:hover{opacity:.85}
+
+/* Responsive */
+@media (max-width:880px){
+  .content{ grid-template-columns: 1fr; }
+  .image-card{ margin-bottom:8px }
+}
+
+/* Animations */
+@keyframes pulse-glow{
+  0%{ box-shadow: 0 8px 30px rgba(201,166,107,0.04) }
+  50%{ box-shadow: 0 18px 60px rgba(201,166,107,0.06) }
+  100%{ box-shadow: 0 8px 30px rgba(201,166,107,0.04) }
+}
+.image-card{ animation: pulse-glow 6s linear infinite }
+
+/* End */
