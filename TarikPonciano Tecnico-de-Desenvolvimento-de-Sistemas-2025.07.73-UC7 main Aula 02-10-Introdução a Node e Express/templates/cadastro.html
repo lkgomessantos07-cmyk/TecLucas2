@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Funcionário</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    
+    <script src="/scripts/script.js"></script>
 </head>
 
 <body>
@@ -14,6 +14,12 @@
 
     <form onsubmit="cadastrarFuncionario(event)" style="display: flex; align-content: center; justify-content: center; ">
         <div class="form-content" style="display: flex; flex-direction: column; gap: 10px;">
+
+            <div>
+                <label for="campoid">ID</label>
+                <input type="number" id="campoid" name="campoid" placeholder="Digite o id do funcionário"
+                    required>
+            </div>
 
             <div>
                 <label for="campoNome">Nome</label>
@@ -41,9 +47,11 @@
                     <option value="Financeiro">Financeiro</option>
                 </select>
             </div>
-         
+
             <button type="submit">Cadastrar</button>
             <button type="reset">Limpar</button>
+
+            </div>
 
         </div>
 

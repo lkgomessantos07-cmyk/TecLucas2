@@ -12,12 +12,21 @@ app.use(express.static(path.join(__dirname, "public")))
 app.use('/img', express.static(path.join(__dirname, "img")))
 
 app.get("/", (req, res) => {
-    res.send(`<h1 style="color:blue">Hello World!</h1>
-        <a href='/bluelock'>Fã Page de Blue Lock</a>`)
+    res.sendFile(path.join(__dirname, "templates", "home.html"))
 })
 
-app.get("/bluelock", (req, res) => {
+app.get("/vinlandsaga", (req, res) => {
     res.sendFile(path.join(__dirname, "templates", "home.html"))
+})
+
+app.listen(PORT, () => {
+    console.log(`Servidor iniciado em http://127.0.0.1:${PORT}/`
+
+    )
+})
+
+app.get("/cadastro", (req, res) => {
+    res.sendFile(path.join(__dirname, "templates", "cadastro.html"))
 })
 
 app.listen(PORT, () => {
